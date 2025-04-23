@@ -263,34 +263,46 @@
     </div>
   </section>
 
-  <!-- SECTION SAE (AVEC EXPANSION DYNAMIQUE PAR CARTE) -->
+  <!-- SECTION SAE (AVEC EXPANSION DÉTAILLÉE + APERÇUS + LIENS DE TÉLÉCHARGEMENT) -->
 <section id="sae" class="min-h-[90dvh] py-6 px-4 overflow-y-auto relative">
   <div class="container mx-auto content-margin">
     <h2 class="text-3xl font-bold text-center mb-4">Mes SAE</h2>
     <div id="sae-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4 transition-all duration-500 ease-in-out">
-      <!-- Exemple de carte SAE interactive -->
+      <!-- Carte SAE interactive -->
       <div class="sae-card relative overflow-hidden transition-all duration-500 ease-in-out">
         <h4 class="text-xl font-bold mb-2">SAÉ 1.01</h4>
         <p>
           Production de plans d'exécution (fondation et coffrage) pour un bâtiment collectif, à partir d’un CCTP et de plans architecturaux.
         </p>
         <button class="mt-2 glass-btn toggle-details">Voir plus</button>
-        <div class="project-details hidden mt-2 border-t pt-2">
-          <p>
-            <strong>Intitulé :</strong> Études d’exécution d’un ouvrage de bâtiment simple<br>
-            <strong>Période :</strong> Semestre 1 – Année 2023-2024<br>
-            <strong>Livrables :</strong>
-            <ul class="list-disc list-inside">
-              <li>Plan de fondation du bâtiment C</li>
-              <li>Plan de coffrage du plancher haut</li>
-            </ul>
-            <strong>Objectif :</strong> Représenter des solutions techniques<br>
-            <strong>Compétences mobilisées :</strong>
-            <ul class="list-disc list-inside">
-              <li>Technologie, analyse, dessin</li>
-            </ul>
-            <strong>Bilan :</strong> Mise en œuvre complète d’un projet exécutable.
-          </p>
+        <div class="project-details hidden mt-4 border-t pt-4">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Partie gauche : texte -->
+            <div class="space-y-4">
+              <p><strong>Intitulé :</strong> Études d’exécution d’un ouvrage de bâtiment simple</p>
+              <p><strong>Période :</strong> Semestre 1 – Année 2023-2024</p>
+              <p><strong>Objectif :</strong> Représenter des solutions techniques</p>
+              <p><strong>Compétences mobilisées :</strong></p>
+              <ul class="list-disc list-inside ml-4">
+                <li>Technologie</li>
+                <li>Analyse</li>
+                <li>Dessin</li>
+              </ul>
+              <p><strong>Bilan :</strong> Mise en œuvre complète d’un projet exécutable.</p>
+              <p><strong>Livrables :</strong></p>
+              <ul class="list-disc list-inside ml-4">
+                <li><a href="/livrables/plan_fondation.pdf" download class="text-copper hover:underline">Plan de fondation du bâtiment C (PDF)</a></li>
+                <li><a href="/livrables/plan_coffrage.pdf" download class="text-copper hover:underline">Plan de coffrage du plancher haut (PDF)</a></li>
+              </ul>
+            </div>
+
+            <!-- Partie droite : aperçus -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <img src="/images/apercu1.jpg" alt="Aperçu livrable 1" class="rounded-xl object-cover border border-white/20">
+              <img src="/images/apercu2.jpg" alt="Aperçu livrable 2" class="rounded-xl object-cover border border-white/20">
+              <img src="/images/apercu3.jpg" alt="Aperçu livrable 3" class="rounded-xl object-cover border border-white/20">
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -304,27 +316,18 @@
         const grid = document.getElementById('sae-grid');
 
         if (!currentCard.classList.contains('expanded')) {
-          // Masquer les autres cartes
           grid.querySelectorAll('.sae-card').forEach(card => {
             if (card !== currentCard) {
               card.classList.add('hidden');
             } else {
-              card.classList.add('z-10');
-              card.classList.add('absolute');
-              card.classList.add('top-0');
-              card.classList.add('left-0');
-              card.classList.add('w-full');
-              card.classList.add('h-full');
-              card.classList.add('expanded');
-              card.classList.add('bg-[rgba(69,81,72,0.9)]');
+              card.classList.add('z-10', 'absolute', 'top-0', 'left-0', 'w-full', 'h-full', 'expanded', 'bg-[rgba(69,81,72,0.9)]', 'rounded-lg', 'p-6');
               details.classList.remove('hidden');
-              button.textContent = 'Fermer';
+              button.textContent = 'Voir moins';
             }
           });
         } else {
-          // Réinitialiser
           grid.querySelectorAll('.sae-card').forEach(card => {
-            card.classList.remove('hidden', 'absolute', 'top-0', 'left-0', 'w-full', 'h-full', 'expanded', 'z-10', 'bg-[rgba(69,81,72,0.9)]');
+            card.classList.remove('hidden', 'absolute', 'top-0', 'left-0', 'w-full', 'h-full', 'expanded', 'z-10', 'bg-[rgba(69,81,72,0.9)]', 'rounded-lg', 'p-6');
             const d = card.querySelector('.project-details');
             if (d) d.classList.add('hidden');
             const b = card.querySelector('.toggle-details');
