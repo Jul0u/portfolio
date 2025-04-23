@@ -263,141 +263,78 @@
     </div>
   </section>
 
-  <!-- SECTION MES SAE -->
-  <section id="sae" class="min-h-[90dvh] py-6 px-4 overflow-y-auto">
+  <!-- SECTION SAE (AVEC EXPANSION DYNAMIQUE PAR CARTE) -->
+<section id="sae" class="min-h-[90dvh] py-6 px-4 overflow-y-auto relative">
   <div class="container mx-auto content-margin">
-    <h2 class="text-3xl font-bold text-center mb-2">Mes SAE</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <!-- Exemple de fiche SAE 1 -->
-        <div class="sae-card">
-          <h4 class="text-xl font-bold mb-2">SAÉ 1.01</h4>
+    <h2 class="text-3xl font-bold text-center mb-4">Mes SAE</h2>
+    <div id="sae-grid" class="grid grid-cols-1 md:grid-cols-3 gap-4 transition-all duration-500 ease-in-out">
+      <!-- Exemple de carte SAE interactive -->
+      <div class="sae-card relative overflow-hidden transition-all duration-500 ease-in-out">
+        <h4 class="text-xl font-bold mb-2">SAÉ 1.01</h4>
+        <p>
+          Production de plans d'exécution (fondation et coffrage) pour un bâtiment collectif, à partir d’un CCTP et de plans architecturaux.
+        </p>
+        <button class="mt-2 glass-btn toggle-details">Voir plus</button>
+        <div class="project-details hidden mt-2 border-t pt-2">
           <p>
-            Production de plans d'exécution (fondation et coffrage) pour un bâtiment collectif, à partir d’un CCTP et de plans architecturaux.
+            <strong>Intitulé :</strong> Études d’exécution d’un ouvrage de bâtiment simple<br>
+            <strong>Période :</strong> Semestre 1 – Année 2023-2024<br>
+            <strong>Livrables :</strong>
+            <ul class="list-disc list-inside">
+              <li>Plan de fondation du bâtiment C</li>
+              <li>Plan de coffrage du plancher haut</li>
+            </ul>
+            <strong>Objectif :</strong> Représenter des solutions techniques<br>
+            <strong>Compétences mobilisées :</strong>
+            <ul class="list-disc list-inside">
+              <li>Technologie, analyse, dessin</li>
+            </ul>
+            <strong>Bilan :</strong> Mise en œuvre complète d’un projet exécutable.
           </p>
-          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
-          <div class="project-details hidden mt-2 border-t pt-2">
-            <p>
-              <strong>Intitulé :</strong> Études d’exécution d’un ouvrage de bâtiment simple<br>
-              <strong>Étudiant :</strong> Jules LE GARS<br>
-              <strong>Période :</strong> Semestre 1 – Année 2023-2024<br>
-              <strong>Livrables :</strong>
-              <ul class="list-disc list-inside">
-                <li>Plan de fondation du bâtiment C (AutoCAD – A0)</li>
-                <li>Plan de coffrage du plancher haut du R+1 du bâtiment B (AutoCAD – A2)</li>
-                <li>Présentation de la SAÉ</li>
-              </ul>
-              <strong>Objectif :</strong> Représenter des solutions techniques de tout ou partie d’un projet de bâtiment.<br>
-              <strong>Compétences mobilisées :</strong>
-              <ul class="list-disc list-inside">
-                <li>Technologie et analyse des structures porteuses</li>
-                <li>Dessin – Lecture de plans</li>
-              </ul>
-              <strong>Bilan :</strong> Cette SAÉ m’a permis de développer ma rigueur, ma maîtrise des conventions de dessin, et mon aptitude à interpréter des documents professionnels complexes.
-            </p>
-          </div>
-        </div>
-        <!-- Fiche SAE n°2 -->
-        <div class="sae-card">
-          <h4 class="text-xl font-bold mb-2">Fiche SAE n°2</h4>
-          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
-          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
-          <div class="project-details hidden mt-2 border-t pt-2">
-            <p>Texte détaillé temporaire pour la SAE.</p>
-          </div>
-        </div>
-        <!-- Fiche SAE n°3 -->
-        <div class="sae-card">
-          <h4 class="text-xl font-bold mb-2">Fiche SAE n°3</h4>
-          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
-          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
-          <div class="project-details hidden mt-2 border-t pt-2">
-            <p>Texte détaillé temporaire pour la SAE.</p>
-          </div>
-        </div>
-        <!-- Fiche SAE n°4 -->
-        <div class="sae-card">
-          <h4 class="text-xl font-bold mb-2">Fiche SAE n°4</h4>
-          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
-          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
-          <div class="project-details hidden mt-2 border-t pt-2">
-            <p>Texte détaillé temporaire pour la SAE.</p>
-          </div>
-        </div>
-        <!-- Fiche SAE n°5 -->
-        <div class="sae-card">
-          <h4 class="text-xl font-bold mb-2">Fiche SAE n°5</h4>
-          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
-          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
-          <div class="project-details hidden mt-2 border-t pt-2">
-            <p>Texte détaillé temporaire pour la SAE.</p>
-          </div>
-        </div>
-        <!-- Fiche SAE n°6 -->
-        <div class="sae-card">
-          <h4 class="text-xl font-bold mb-2">Fiche SAE n°6</h4>
-          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
-          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
-          <div class="project-details hidden mt-2 border-t pt-2">
-            <p>Texte détaillé temporaire pour la SAE.</p>
-          </div>
-        </div>
-        <!-- Fiche SAE n°7 -->
-        <div class="sae-card">
-          <h4 class="text-xl font-bold mb-2">Fiche SAE n°7</h4>
-          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
-          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
-          <div class="project-details hidden mt-2 border-t pt-2">
-            <p>Texte détaillé temporaire pour la SAE.</p>
-          </div>
-        </div>
-        <!-- Fiche SAE n°8 -->
-        <div class="sae-card">
-          <h4 class="text-xl font-bold mb-2">Fiche SAE n°8</h4>
-          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
-          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
-          <div class="project-details hidden mt-2 border-t pt-2">
-            <p>Texte détaillé temporaire pour la SAE.</p>
-          </div>
-        </div>
-        <!-- Fiche SAE n°9 -->
-        <div class="sae-card">
-          <h4 class="text-xl font-bold mb-2">Fiche SAE n°9</h4>
-          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
-          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
-          <div class="project-details hidden mt-2 border-t pt-2">
-            <p>Texte détaillé temporaire pour la SAE.</p>
-          </div>
-        </div>
-        <!-- Fiche SAE n°10 -->
-        <div class="sae-card">
-          <h4 class="text-xl font-bold mb-2">Fiche SAE n°10</h4>
-          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
-          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
-          <div class="project-details hidden mt-2 border-t pt-2">
-            <p>Texte détaillé temporaire pour la SAE.</p>
-          </div>
-        </div>
-        <!-- Fiche SAE n°11 -->
-        <div class="sae-card">
-          <h4 class="text-xl font-bold mb-2">Fiche SAE n°11</h4>
-          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
-          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
-          <div class="project-details hidden mt-2 border-t pt-2">
-            <p>Texte détaillé temporaire pour la SAE.</p>
-          </div>
-        </div>
-        <!-- Fiche SAE n°12 -->
-        <div class="sae-card">
-          <h4 class="text-xl font-bold mb-2">Fiche SAE n°12</h4>
-          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
-          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
-          <div class="project-details hidden mt-2 border-t pt-2">
-            <p>Texte détaillé temporaire pour la SAE.</p>
-          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+
+  <script>
+    document.querySelectorAll('.toggle-details').forEach(button => {
+      button.addEventListener('click', () => {
+        const currentCard = button.closest('.sae-card');
+        const details = currentCard.querySelector('.project-details');
+        const grid = document.getElementById('sae-grid');
+
+        if (!currentCard.classList.contains('expanded')) {
+          // Masquer les autres cartes
+          grid.querySelectorAll('.sae-card').forEach(card => {
+            if (card !== currentCard) {
+              card.classList.add('hidden');
+            } else {
+              card.classList.add('z-10');
+              card.classList.add('absolute');
+              card.classList.add('top-0');
+              card.classList.add('left-0');
+              card.classList.add('w-full');
+              card.classList.add('h-full');
+              card.classList.add('expanded');
+              card.classList.add('bg-[rgba(69,81,72,0.9)]');
+              details.classList.remove('hidden');
+              button.textContent = 'Fermer';
+            }
+          });
+        } else {
+          // Réinitialiser
+          grid.querySelectorAll('.sae-card').forEach(card => {
+            card.classList.remove('hidden', 'absolute', 'top-0', 'left-0', 'w-full', 'h-full', 'expanded', 'z-10', 'bg-[rgba(69,81,72,0.9)]');
+            const d = card.querySelector('.project-details');
+            if (d) d.classList.add('hidden');
+            const b = card.querySelector('.toggle-details');
+            if (b) b.textContent = 'Voir plus';
+          });
+        }
+      });
+    });
+  </script>
+</section>
 
   <!-- SECTION MES PROJETS (PIP uniquement, thème identique aux SAE) -->
   <section id="projets" class="min-h-[90dvh] py-6 px-4 overflow-y-auto">
