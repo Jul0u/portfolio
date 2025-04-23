@@ -147,17 +147,40 @@
     </nav>
   </header>
 
-  <!-- SECTION ACCUEIL / HERO -->
-  <section id="accueil" class="py-8 px-4">
-    <div class="max-w-4xl mx-auto px-4 text-center">
-      <!-- Titre et texte d'accueil avec le même style que la section À propos -->
-      <h1 class="text-3xl md:text-4xl font-bold text-[#f1ede5] mb-6">Jules Le Gars</h1>
-      <p class="text-lg md:text-xl mb-4 justify-text">
+<!--####################################################################################################################################-->  
+  
+  <!-- SECTION ACCUEIL (NOUVELLE VERSION) -->
+<section id="accueil" class="min-h-screen grid grid-cols-1 md:grid-cols-2 gap-8 items-center px-6 py-12 relative">
+  <!-- Bloc gauche : Texte -->
+  <div class="bg-[rgba(255,153,0,0.1)] rounded-2xl p-6 backdrop-blur-sm border border-white/10 shadow-inner">
+    <h1 class="text-4xl font-bold text-white mb-6 text-center md:text-left">Jules Le Gars</h1>
+    <div class="space-y-6 text-[#A7B98C] text-justify text-lg">
+      <p>
         Étudiant en Génie Civil, passionné par l'architecture, l’innovation et le développement durable, je conçois des structures innovantes et éco-responsables qui respectent notre environnement. Mon ambition est de créer des espaces bâtis alliant fonctionnalité, esthétisme et durabilité.
       </p>
+      <p class="text-[#ECE9E0] text-xl font-semibold">À propos de moi</p>
+      <p>
+        Je m'appelle Jules, j'ai 20 ans et je suis étudiant en Génie Civil et Conception Durable. Passionné par la conception de structures visant l’efficacité, la durabilité et le respect de l'environnement, mon parcours académique m'a permis de comprendre les enjeux de la transition énergétique et d'acquérir une approche technique et architecturale de projets variés.
+      </p>
+      <p>
+        Mon objectif est d'obtenir un double diplôme d'ingénieur architecte afin de concevoir et coordonner des projets d'architecture complets. Attiré par le développement durable et l'urbanisme, je rêve de créer une entreprise spécialisée dans l'habitat énergétiquement autonome, contribuant à un avenir innovant et respectueux de notre planète.
+      </p>
     </div>
-    <!-- Photo retirée -->
-  </section>
+  </div>
+
+  <!-- Bloc droit : Image -->
+  <div class="bg-red-500 rounded-2xl overflow-hidden flex justify-center items-center p-4">
+    <img src="Photo_JLG.jpg" alt="Photo de Jules" class="rounded-xl w-full h-auto max-w-sm shadow-lg">
+  </div>
+
+  <!-- Bouton scroll vers #parcours -->
+  <button onclick="document.getElementById('parcours').scrollIntoView({ behavior: 'smooth' });" 
+          class="absolute bottom-4 left-1/2 -translate-x-1/2 bg-[rgba(69,81,72,0.7)] border border-white/30 rounded-full p-3 backdrop-blur-sm shadow-md transition hover:bg-[rgba(69,81,72,0.9)]">
+    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+</section>
 
   <!-- SECTION À PROPOS -->
   <section id="a-propos" class="py-8 px-4">
