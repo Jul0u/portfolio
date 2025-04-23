@@ -263,7 +263,7 @@
     </div>
   </section>
 
-  <!-- SECTION SAE (AVEC EXPANSION DÉTAILLÉE + PLEINE LARGEUR) -->
+  <!-- SECTION SAE (AVEC EXPANSION DÉTAILLÉE + PLEINE LARGEUR + TRANSITIONS BOUTONS) -->
 <section id="sae" class="min-h-[90dvh] py-6 px-0 overflow-y-auto relative">
   <div class="w-full">
     <h2 class="text-3xl font-bold text-center mb-4">Mes SAE</h2>
@@ -274,7 +274,7 @@
         <p>
           Production de plans d'exécution (fondation et coffrage) pour un bâtiment collectif, à partir d’un CCTP et de plans architecturaux.
         </p>
-        <button class="mt-2 glass-btn toggle-details">Voir plus</button>
+        <button class="mt-2 glass-btn toggle-details transition-all duration-300 transform">Voir plus</button>
         <div class="project-details hidden mt-4 border-t pt-4">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <!-- Partie gauche : texte -->
@@ -291,8 +291,8 @@
               <p><strong>Bilan :</strong> Mise en œuvre complète d’un projet exécutable.</p>
               <p><strong>Livrables :</strong></p>
               <ul class="list-disc list-inside ml-4">
-                <li><a href="/livrables/plan_fondation.pdf" download class="text-copper hover:underline">Plan de fondation du bâtiment C (PDF)</a></li>
-                <li><a href="/livrables/plan_coffrage.pdf" download class="text-copper hover:underline">Plan de coffrage du plancher haut (PDF)</a></li>
+                <li><a href="/livrables/plan_fondation.pdf" download class="text-copper hover:underline transition-all duration-300">Plan de fondation du bâtiment C (PDF)</a></li>
+                <li><a href="/livrables/plan_coffrage.pdf" download class="text-copper hover:underline transition-all duration-300">Plan de coffrage du plancher haut (PDF)</a></li>
               </ul>
             </div>
 
@@ -314,6 +314,10 @@
         const currentCard = button.closest('.sae-card');
         const details = currentCard.querySelector('.project-details');
         const grid = document.getElementById('sae-grid');
+
+        // Effet morphose sur le bouton
+        button.classList.add('scale-95');
+        setTimeout(() => button.classList.remove('scale-95'), 150);
 
         if (!currentCard.classList.contains('expanded')) {
           grid.querySelectorAll('.sae-card').forEach(card => {
