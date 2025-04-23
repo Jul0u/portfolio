@@ -149,16 +149,16 @@
 
 <!--####################################################################################################################################-->  
   
-  <!-- SECTION ACCUEIL (NOUVELLE VERSION) -->
-<section id="accueil" class="min-h-screen grid grid-cols-1 md:grid-cols-2 gap-8 items-center px-6 py-12 relative">
-  <!-- Bloc gauche : Texte -->
-  <div class="bg-[rgba(255,153,0,0.1)] rounded-2xl p-6 backdrop-blur-sm border border-white/10 shadow-inner">
-    <h1 class="text-4xl font-bold text-white mb-6 text-center md:text-left">Jules Le Gars</h1>
-    <div class="space-y-6 text-[#A7B98C] text-justify text-lg">
+  <!-- SECTION ACCUEIL (RESPONSIVE AVANCÉ : FLÈCHE TOUJOURS VISIBLE + ADAPTATION TAILLE) -->
+<section id="accueil" class="min-h-[100dvh] grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-center px-4 md:px-8 py-6 md:py-12 relative">
+  <!-- Bloc texte : 2\/3 -->
+  <div class="md:col-span-2 p-4 md:p-6 backdrop-blur-sm flex flex-col justify-center">
+    <h1 class="text-3xl md:text-4xl font-bold text-white mb-4 md:mb-6 text-center md:text-left">Jules Le Gars</h1>
+    <div class="space-y-4 md:space-y-6 text-[#A7B98C] text-justify text-base md:text-lg">
       <p>
         Étudiant en Génie Civil, passionné par l'architecture, l’innovation et le développement durable, je conçois des structures innovantes et éco-responsables qui respectent notre environnement. Mon ambition est de créer des espaces bâtis alliant fonctionnalité, esthétisme et durabilité.
       </p>
-      <p class="text-[#ECE9E0] text-xl font-semibold">À propos de moi</p>
+      <p class="text-[#ECE9E0] text-lg md:text-xl font-semibold">À propos de moi</p>
       <p>
         Je m'appelle Jules, j'ai 20 ans et je suis étudiant en Génie Civil et Conception Durable. Passionné par la conception de structures visant l’efficacité, la durabilité et le respect de l'environnement, mon parcours académique m'a permis de comprendre les enjeux de la transition énergétique et d'acquérir une approche technique et architecturale de projets variés.
       </p>
@@ -168,9 +168,11 @@
     </div>
   </div>
 
-  <!-- Bloc droit : Image -->
-  <div class="bg-red-500 rounded-2xl overflow-hidden flex justify-center items-center p-4">
-    <img src="Photo_JLG.jpg" alt="Photo de Jules" class="rounded-xl w-full h-auto max-w-sm shadow-lg">
+  <!-- Bloc image : 1\/3, aligné hauteur -->
+  <div class="md:col-span-1 flex items-stretch p-4">
+    <div class="w-full flex items-center justify-center">
+      <img src="Photo_JLG.jpg" alt="Photo de Jules" class="rounded-xl h-full object-cover max-h-full shadow-lg">
+    </div>
   </div>
 
   <!-- Bouton scroll vers #parcours -->
