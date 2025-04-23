@@ -1,0 +1,24 @@
+formations:
+  - formation: "BUT Génie Civil & Construction Durable (Alternance)"
+    etablissement: "IUT de Nantes, campus de Saint-Nazaire"
+    periode: "2024 - 2025"
+
+  - formation: "Classe préparatoire PTSI"
+    etablissement: "Lycée Eugène Livet"
+    periode: "2023 - 2024"
+
+  - formation: "Baccalauréat Mention Bien"
+    etablissement: "Lycée Eugène Livet"
+    specialites: "Sciences de l'ingénieur, Mathématiques ; option Maths expertes"
+    annee: "2023"
+
+  - formation: "Certification PIX (informatique & Internet)"
+    etablissement: "Lycée Eugène Livet"
+    annee: "2023"
+
+  - formation: "Permis B"
+    annee: "2022"
+
+  - formation: "Brevet d'artisanat découverte - L’Outil en Main"
+    lieu: "Riaillé"
+    annee: "2017"

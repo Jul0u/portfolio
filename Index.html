@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio de Jules Le Gars</title>
+  <!-- Intégration de Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Styles personnalisés pour la palette, l'effet glass, le mode sombre, les textures et les marges -->
+  <style>
+    /* Palette de base */
+    .bg-olive { background-color: #6A7759; }
+    .text-olive { color: #6A7759; }
+    .bg-beige { background-color: #F2EFEA; }
+    .text-anthracite { color: #3C3C3C; }
+    .bg-copper { background-color: #B27233; }
+    .text-copper { color: #B27233; }
+    .bg-dark-menu { background-color: #1E1C1C; }
+
+    /* Fond grille classique pour le reste du site */
+    body.bg-beige {
+      background-color: #F2EFEA;
+      background-image: 
+        linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+    /* Mode sombre global */
+    body.dark-mode {
+      background-color: #1E1C1C;
+      background-image: 
+        linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      color: #A9C29B;
+    }
+    .dark-mode a { color: #A9C29B; }
+    .dark-mode .glass-btn {
+      background: rgba(169,194,155,0.4);
+      border: 1px solid rgba(169,194,155,0.7);
+    }
+    .dark-mode .glass-btn:hover { background: rgba(169,194,155,0.5); }
+    .dark-mode .bg-beige { background-color: #1E1C1C; }
+    .dark-mode .bg-gray-100 { background-color: #2C2C2A; }
+    .dark-mode .bg-white { background-color: #2C2C2A; }
+
+    /* Bouton glass générique */
+    .glass-btn {
+      background: rgba(106,119,89,0.4);
+      border: 1px solid rgba(106,119,89,0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 9999px;
+      transition: all 0.3s ease-in-out;
+      display: inline-block;
+      text-align: center;
+    }
+    .glass-btn:hover {
+      background: rgba(106,119,89,0.5);
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    a, button { transition: all 0.3s ease-in-out; }
+
+    /* Textes justifiés et marge horizontale uniforme */
+    .justify-text { text-align: justify; }
+    .content-margin { margin: 0 2rem; }
+
+    /* ===== SECTION "MON PARCOURS" ===== */
+    #parcours {
+      background-color: #5a6b4e; /* Vert olive foncé */
+      background-image: url('hex-grid.svg'); /* URL du motif hexagonal */
+      background-size: 150px 150px;
+      background-repeat: repeat;
+    }
+    .parcours-card {
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      padding: 1rem;
+    }
+    .parcours-card h4 { color: #ECE9E0; }
+    .parcours-card p, .parcours-card ul { color: #A7B98C; font-size: 0.875rem; }
+
+    /* ===== SECTION "MES SAE" et "MES PROJETS" ===== */
+    .sae-card {
+      /* Effet glass teinté en #455148 avec opacité pour un rendu lumineux */
+      background: rgba(69,81,72,0.7);
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(241,237,229,0.5);
+      border-radius: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      padding: 1rem;
+    }
+    .sae-card h4 { color: #ECE9E0; }
+    .sae-card p { color: #A7B98C; font-size: 0.875rem; }
+  </style>
+</head>
+<body class="dark-mode">
+  <!-- HEADER -->
+  <header class="sticky top-0 z-50">
+    <nav class="bg-dark-menu text-white px-2 py-3 shadow-md">
+      <div class="container mx-auto flex justify-between items-center">
+        <!-- Logo positionné très à gauche avec marge réduite -->
+        <a href="#accueil" class="flex items-center ml-2">
+          <img src="logo.png" alt="Logo" class="w-10 h-10 rounded-lg">
+        </a>
+        <div class="flex items-center">
+          <button id="dark-mode-toggle" class="mr-4 focus:outline-none">
+            <svg id="icon-moon" class="hidden w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.79A9 9 0 1111.21 3a7 7 0 009.79 9.79z"></path>
+            </svg>
+            <svg id="icon-sun" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 2v2m0 16v2m4-18.36l1.42 1.42M6.18 6.18l1.42 1.42M20 12h2M2 12H4m15.82 4.82l1.42-1.42M6.18 17.82l1.42-1.42M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+            </svg>
+          </button>
+          <ul class="hidden md:flex space-x-6">
+            <li><a href="#accueil" class="hover:text-copper">Accueil</a></li>
+            <li><a href="#a-propos" class="hover:text-copper">À propos</a></li>
+            <li><a href="#parcours" class="hover:text-copper">Mon parcours</a></li>
+            <li><a href="#sae" class="hover:text-copper">Mes SAE</a></li>
+            <li><a href="#projets" class="hover:text-copper">Mes projets</a></li>
+            <li><a href="#contact" class="hover:text-copper">Contact</a></li>
+          </ul>
+          <div class="md:hidden">
+            <button id="menu-toggle" class="focus:outline-none">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden">
+        <ul class="px-2 pt-2 pb-3 space-y-1">
+          <li><a href="#accueil" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-copper">Accueil</a></li>
+          <li><a href="#a-propos" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-copper">À propos</a></li>
+          <li><a href="#parcours" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-copper">Mon parcours</a></li>
+          <li><a href="#sae" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-copper">Mes SAE</a></li>
+          <li><a href="#projets" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-copper">Mes projets</a></li>
+          <li><a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium hover:bg-copper">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- SECTION ACCUEIL / HERO -->
+  <section id="accueil" class="py-8 px-4">
+    <div class="content-margin text-center">
+      <!-- Titre et texte d'accueil avec le même style que la section À propos -->
+      <h1 class="text-3xl md:text-4xl font-bold text-[#f1ede5] mb-6">Jules Le Gars</h1>
+      <p class="text-lg leading-relaxed justify-text content-margin mb-10">
+        Étudiant en Génie Civil, passionné par l'architecture, l’innovation et le développement durable, je conçois des structures innovantes et éco-responsables qui respectent notre environnement. Mon ambition est de créer des espaces bâtis alliant fonctionnalité, esthétisme et durabilité.
+      </p>
+    </div>
+    <!-- Photo retirée -->
+  </section>
+
+  <!-- SECTION À PROPOS -->
+  <section id="a-propos" class="py-8 px-4">
+    <div class="container mx-auto content-margin mb-24">
+      <h2 class="text-3xl font-bold mb-4">À propos de moi</h2>
+      <div class="text-lg leading-relaxed justify-text">
+        <p>
+          Je m'appelle Jules, j'ai 20 ans et je suis étudiant en Génie Civil et Conception Durable. Passionné par la conception de structures visant l’efficacité, la durabilité et le respect de l'environnement, mon parcours académique m'a permis de comprendre les enjeux de la transition énergétique et d'acquérir une approche technique et architecturale de projets variés.
+        </p>
+        <p class="mt-4">
+          Mon objectif est d'obtenir un double diplôme d'ingénieur architecte afin de concevoir et coordonner des projets d'architecture complets. Attiré par le développement durable et l'urbanisme, je rêve de créer une entreprise spécialisée dans l'habitat énergétiquement autonome, contribuant à un avenir innovant et respectueux de notre planète.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION MON PARCOURS -->
+  <section id="parcours" class="py-8 bg-gray-100 px-4">
+    <div class="container mx-auto content-margin">
+      <h2 class="text-3xl font-bold text-center mb-4">Mon parcours</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Colonne Études & diplômes -->
+        <div>
+          <h3 class="text-2xl font-bold text-center mb-4">Études & diplômes</h3>
+          <div class="grid grid-cols-1 gap-4">
+            <div class="parcours-card">
+              <h4 class="text-xl font-bold mb-1">BUT Génie Civil & Construction Durable (Alternance)</h4>
+              <p class="text-sm">IUT de Nantes, campus de Saint-Nazaire | 2024 - 2025</p>
+            </div>
+            <div class="parcours-card">
+              <h4 class="text-xl font-bold mb-1">Classe préparatoire PTSI</h4>
+              <p class="text-sm">Lycée Eugène Livet | 2023 - 2024</p>
+            </div>
+            <div class="parcours-card">
+              <h4 class="text-xl font-bold mb-1">Baccalauréat Mention Bien</h4>
+              <p class="text-sm">Lycée Eugène Livet<br>
+                <span class="italic">Sciences de l'ingénieur, Mathématiques (option Maths expertes) | 2023</span>
+              </p>
+            </div>
+            <div class="parcours-card">
+              <h4 class="text-xl font-bold mb-1">Certification PIX (Informatique & Internet)</h4>
+              <p class="text-sm">Lycée Eugène Livet | 2023</p>
+            </div>
+            <div class="parcours-card">
+              <h4 class="text-xl font-bold mb-1">Permis B</h4>
+              <p class="text-sm">2022</p>
+            </div>
+            <div class="parcours-card">
+              <h4 class="text-xl font-bold mb-1">Brevet d'artisanat découverte - L’Outil en Main</h4>
+              <p class="text-sm">Riaillé | 2017</p>
+            </div>
+          </div>
+        </div>
+        <!-- Colonne Expériences professionnelles -->
+        <div>
+          <h3 class="text-2xl font-bold text-center mb-4">Expériences professionnelles</h3>
+          <div class="grid grid-cols-1 gap-4">
+            <div class="parcours-card">
+              <h4 class="text-xl font-bold mb-1">Technicien & Dessinateur Projeteur</h4>
+              <p class="text-sm">Sixense Engineering | Août 2024 - à ce jour</p>
+              <ul class="list-disc list-inside text-sm mt-1">
+                <li>Diagnostic des pathologies du BTP</li>
+                <li>Dessin et modélisation technique</li>
+              </ul>
+            </div>
+            <div class="parcours-card">
+              <h4 class="text-xl font-bold mb-1">Loueur / Réparateur de vélos</h4>
+              <p class="text-sm">L'Autobécane, L'île d'Yeu | Juillet - Août 2023</p>
+              <ul class="list-disc list-inside text-sm mt-1">
+                <li>Location, entretien, dépannage et réparation de vélos</li>
+              </ul>
+            </div>
+            <div class="parcours-card">
+              <h4 class="text-xl font-bold mb-1">Hôte de caisse</h4>
+              <p class="text-sm">Carrefour Riaillé | Juillet - Août 2022</p>
+            </div>
+            <div class="parcours-card">
+              <h4 class="text-xl font-bold mb-1">Responsable communication - Maison des Lycéens</h4>
+              <p class="text-sm">Lycée Livet, Nantes | 2019 - 2022</p>
+            </div>
+            <div class="parcours-card">
+              <h4 class="text-xl font-bold mb-1">Stagiaire bureau d'étude</h4>
+              <p class="text-sm">Toyota - Affaires Spéciales, Ancenis | Novembre 2018</p>
+            </div>
+            <div class="parcours-card">
+              <h4 class="text-xl font-bold mb-1">Stagiaire bureau d'étude</h4>
+              <p class="text-sm">ECI-Meca, Ancenis | Février 2018</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION MES SAE -->
+  <section id="sae" class="py-8 px-4">
+    <div class="container mx-auto content-margin">
+      <h2 class="text-3xl font-bold text-center mb-4">Mes SAE</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Exemple de fiche SAE 1 -->
+        <div class="sae-card">
+          <h4 class="text-xl font-bold mb-2">SAÉ 1.01</h4>
+          <p>
+            Production de plans d'exécution (fondation et coffrage) pour un bâtiment collectif, à partir d’un CCTP et de plans architecturaux.
+          </p>
+          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
+          <div class="project-details hidden mt-2 border-t pt-2">
+            <p>
+              <strong>Intitulé :</strong> Études d’exécution d’un ouvrage de bâtiment simple<br>
+              <strong>Étudiant :</strong> Jules LE GARS<br>
+              <strong>Période :</strong> Semestre 1 – Année 2023-2024<br>
+              <strong>Livrables :</strong>
+              <ul class="list-disc list-inside">
+                <li>Plan de fondation du bâtiment C (AutoCAD – A0)</li>
+                <li>Plan de coffrage du plancher haut du R+1 du bâtiment B (AutoCAD – A2)</li>
+                <li>Présentation de la SAÉ</li>
+              </ul>
+              <strong>Objectif :</strong> Représenter des solutions techniques de tout ou partie d’un projet de bâtiment.<br>
+              <strong>Compétences mobilisées :</strong>
+              <ul class="list-disc list-inside">
+                <li>Technologie et analyse des structures porteuses</li>
+                <li>Dessin – Lecture de plans</li>
+              </ul>
+              <strong>Bilan :</strong> Cette SAÉ m’a permis de développer ma rigueur, ma maîtrise des conventions de dessin, et mon aptitude à interpréter des documents professionnels complexes.
+            </p>
+          </div>
+        </div>
+        <!-- Fiche SAE n°2 -->
+        <div class="sae-card">
+          <h4 class="text-xl font-bold mb-2">Fiche SAE n°2</h4>
+          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
+          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
+          <div class="project-details hidden mt-2 border-t pt-2">
+            <p>Texte détaillé temporaire pour la SAE.</p>
+          </div>
+        </div>
+        <!-- Fiche SAE n°3 -->
+        <div class="sae-card">
+          <h4 class="text-xl font-bold mb-2">Fiche SAE n°3</h4>
+          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
+          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
+          <div class="project-details hidden mt-2 border-t pt-2">
+            <p>Texte détaillé temporaire pour la SAE.</p>
+          </div>
+        </div>
+        <!-- Fiche SAE n°4 -->
+        <div class="sae-card">
+          <h4 class="text-xl font-bold mb-2">Fiche SAE n°4</h4>
+          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
+          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
+          <div class="project-details hidden mt-2 border-t pt-2">
+            <p>Texte détaillé temporaire pour la SAE.</p>
+          </div>
+        </div>
+        <!-- Fiche SAE n°5 -->
+        <div class="sae-card">
+          <h4 class="text-xl font-bold mb-2">Fiche SAE n°5</h4>
+          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
+          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
+          <div class="project-details hidden mt-2 border-t pt-2">
+            <p>Texte détaillé temporaire pour la SAE.</p>
+          </div>
+        </div>
+        <!-- Fiche SAE n°6 -->
+        <div class="sae-card">
+          <h4 class="text-xl font-bold mb-2">Fiche SAE n°6</h4>
+          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
+          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
+          <div class="project-details hidden mt-2 border-t pt-2">
+            <p>Texte détaillé temporaire pour la SAE.</p>
+          </div>
+        </div>
+        <!-- Fiche SAE n°7 -->
+        <div class="sae-card">
+          <h4 class="text-xl font-bold mb-2">Fiche SAE n°7</h4>
+          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
+          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
+          <div class="project-details hidden mt-2 border-t pt-2">
+            <p>Texte détaillé temporaire pour la SAE.</p>
+          </div>
+        </div>
+        <!-- Fiche SAE n°8 -->
+        <div class="sae-card">
+          <h4 class="text-xl font-bold mb-2">Fiche SAE n°8</h4>
+          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
+          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
+          <div class="project-details hidden mt-2 border-t pt-2">
+            <p>Texte détaillé temporaire pour la SAE.</p>
+          </div>
+        </div>
+        <!-- Fiche SAE n°9 -->
+        <div class="sae-card">
+          <h4 class="text-xl font-bold mb-2">Fiche SAE n°9</h4>
+          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
+          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
+          <div class="project-details hidden mt-2 border-t pt-2">
+            <p>Texte détaillé temporaire pour la SAE.</p>
+          </div>
+        </div>
+        <!-- Fiche SAE n°10 -->
+        <div class="sae-card">
+          <h4 class="text-xl font-bold mb-2">Fiche SAE n°10</h4>
+          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
+          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
+          <div class="project-details hidden mt-2 border-t pt-2">
+            <p>Texte détaillé temporaire pour la SAE.</p>
+          </div>
+        </div>
+        <!-- Fiche SAE n°11 -->
+        <div class="sae-card">
+          <h4 class="text-xl font-bold mb-2">Fiche SAE n°11</h4>
+          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
+          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
+          <div class="project-details hidden mt-2 border-t pt-2">
+            <p>Texte détaillé temporaire pour la SAE.</p>
+          </div>
+        </div>
+        <!-- Fiche SAE n°12 -->
+        <div class="sae-card">
+          <h4 class="text-xl font-bold mb-2">Fiche SAE n°12</h4>
+          <p>Texte de remplissage temporaire pour la fiche de SAE.</p>
+          <button class="mt-2 glass-btn toggle-details">Voir plus</button>
+          <div class="project-details hidden mt-2 border-t pt-2">
+            <p>Texte détaillé temporaire pour la SAE.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION MES PROJETS (PIP uniquement, thème identique aux SAE) -->
+  <section id="projets" class="py-8 px-4">
+    <div class="container mx-auto content-margin">
+      <h2 class="text-3xl font-bold text-center mb-4">Mes Projets</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="sae-card">
+          <img src="projet_pip1.jpg" alt="Projet PIP 1" class="w-full h-64 object-cover transition-all duration-300">
+          <div class="p-4">
+            <h4 class="text-xl font-bold mb-2">Projet PIP 1</h4>
+            <p class="text-sm">Brève description du projet d'initiative personnelle.</p>
+            <button class="mt-2 glass-btn toggle-details">Voir plus</button>
+            <div class="project-details hidden mt-2 border-t pt-2">
+              <p class="text-sm">Détail du projet PIP 1, incluant la méthodologie et les résultats.</p>
+            </div>
+          </div>
+        </div>
+        <div class="sae-card">
+          <img src="projet_pip2.jpg" alt="Projet PIP 2" class="w-full h-64 object-cover transition-all duration-300">
+          <div class="p-4">
+            <h4 class="text-xl font-bold mb-2">Projet PIP 2</h4>
+            <p class="text-sm">Brève description du projet d'initiative personnelle.</p>
+            <button class="mt-2 glass-btn toggle-details">Voir plus</button>
+            <div class="project-details hidden mt-2 border-t pt-2">
+              <p class="text-sm">Détail du projet PIP 2, incluant la méthodologie et les résultats.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION CONTACT (centrée) -->
+  <section id="contact" class="py-8 bg-gray-100 px-4">
+    <div class="container mx-auto text-center content-margin">
+      <h2 class="text-3xl font-bold mb-8">Contactez-moi</h2>
+      <form class="max-w-xl mx-auto">
+        <div class="mb-4">
+          <label for="name" class="block text-left mb-2">Nom</label>
+          <input type="text" id="name" name="name" class="w-full px-4 py-2 border rounded" placeholder="Votre nom">
+        </div>
+        <div class="mb-4">
+          <label for="email" class="block text-left mb-2">Email</label>
+          <input type="email" id="email" name="email" class="w-full px-4 py-2 border rounded" placeholder="Votre email">
+        </div>
+        <div class="mb-4">
+          <label for="message" class="block text-left mb-2">Message</label>
+          <textarea id="message" name="message" rows="4" class="w-full px-4 py-2 border rounded" placeholder="Votre message"></textarea>
+        </div>
+        <button type="submit" class="glass-btn">Envoyer</button>
+      </form>
+      <div class="mt-8">
+        <p class="text-lg">Téléphone : <a href="tel:0651296339" class="underline hover:text-copper">06 51 29 63 39</a></p>
+        <p class="text-lg">Email : <a href="mailto:mr.jules.le.gars@pm.me" class="underline hover:text-copper">mr.jules.le.gars@pm.me</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-6 bg-dark-menu text-white text-center">
+    <div class="container mx-auto">
+      <p>&copy; 2025 Jules Le Gars. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT JS -->
+  <script>
+    // Bascule du menu mobile
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    // Gestion de l'expansion des fiches SAE et autres
+    const detailToggles = document.querySelectorAll('.toggle-details');
+    detailToggles.forEach(button => {
+      button.addEventListener('click', () => {
+        const details = button.parentElement.querySelector('.project-details');
+        if(details.classList.contains('hidden')){
+          details.classList.remove('hidden');
+          button.textContent = 'Voir moins';
+        } else {
+          details.classList.add('hidden');
+          button.textContent = 'Voir plus';
+        }
+      });
+    });
+    // Gestion du mode clair/sombre
+    const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const iconMoon = document.getElementById('icon-moon');
+    const iconSun = document.getElementById('icon-sun');
+    darkModeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if(document.body.classList.contains('dark-mode')) {
+        iconMoon.classList.add('hidden');
+        iconSun.classList.remove('hidden');
+      } else {
+        iconSun.classList.add('hidden');
+        iconMoon.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

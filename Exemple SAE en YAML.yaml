@@ -1,0 +1,48 @@
+sae:
+  affichage_rapide:
+    code: "SAÉ 1.01"
+    resume: "Production de plans d'exécution (fondation et coffrage) pour un bâtiment collectif, à partir d’un CCTP et de plans architecturaux."
+
+  affichage_developpe:
+    intitule: "Études d’exécution d’un ouvrage de bâtiment simple"
+    etudiant: "Jules LE GARS"
+    periode: "Semestre 1 – Année 2023-2024"
+
+    livrables:
+      - "Plan de fondation du bâtiment C (AutoCAD – A0)"
+      - "Plan de coffrage du plancher haut du R+1 du bâtiment B (AutoCAD – A2)"
+      - "Présentation de la SAÉ (structure du projet, répartition des tâches, attendus pédagogiques)"
+
+    objectif:
+      competence_ciblee: "Représenter des solutions techniques de tout ou partie d’un projet de bâtiment."
+      apprentissages_critiques:
+        - "Décrire les différentes technologies des bâtiments"
+        - "Analyser des plans et des détails techniques"
+        - "Produire des plans, coupes, détails techniques, en respectant les normes de dessin"
+
+    competences_mobilisees:
+      UE11 - Solutions techniques en bâtiment:
+        - ressource: "R1.05 – Technologie et analyse des structures porteuses"
+          niveau_maitrise: 2
+          justification: >
+            Interprétation du CCTP et identification des éléments porteurs pour le bâtiment B,
+            justifiée dans la phase d’analyse technique avant le dessin des plans.
+        - ressource: "R1.06 – Dessin - Lecture de plans"
+          niveau_maitrise: 3
+          justification: >
+            Réalisation sur AutoCAD du plan de fondation du bâtiment C (A0) et du plan de coffrage
+            du plancher haut du R+1 du bâtiment B (A2), en respectant les conventions de dessin du TP.
+
+    bilan: >
+      Cette première SAÉ m’a permis de m’immerger concrètement dans la conception technique d’un bâtiment.
+      La réalisation des plans de fondation et de coffrage a développé ma rigueur, ma maîtrise des conventions de dessin
+      et ma capacité à interpréter des documents professionnels complexes.
+
+      J’ai particulièrement apprécié la progression entre les TD préparatoires et les séances de mise au net,
+      qui m’ont permis de comprendre le lien entre l’architecture, la structure et l’exécution.
+
+      J’ai rencontré des difficultés dans la hiérarchisation des calques et le repérage des porteurs secondaires,
+      mais une relecture attentive du CCTP et l’appui du plan de principe m’ont permis de corriger cela.
+
+      Je dois encore gagner en rapidité et en autonomie sur AutoCAD, mais cette expérience m’a conforté
+      dans mon souhait de travailler plus tard sur la conception d’ouvrages durables en bureau d’études.
